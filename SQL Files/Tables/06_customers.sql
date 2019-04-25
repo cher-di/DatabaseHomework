@@ -5,7 +5,7 @@ CREATE TABLE customers (
     cust_email     VARCHAR(100),
     cust_date      DATE,
     cust_phone     VARCHAR(30),
-    cust_payment   NUMERIC(16)
+    cust_payment   NUMBER(16)
 );
 
 -- Пример ввода данных

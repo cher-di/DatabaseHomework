@@ -2,7 +2,7 @@
 CREATE SEQUENCE developers_seq START WITH 1;
 
 CREATE TABLE developers (
-    dev_id          NUMERIC(10) DEFAULT developers_seq.NEXTVAL PRIMARY KEY,
+    dev_id          NUMBER(10) DEFAULT developers_seq.NEXTVAL PRIMARY KEY,
     dev_name        VARCHAR(200),
     dev_founddate   DATE,
     dev_adress      VARCHAR(200),
@@ -24,7 +24,7 @@ INSERT INTO developers (
 
 -- Код создания
 CREATE TABLE dev_phones (
-    dph_id      NUMERIC(10)
+    dph_id      NUMBER(10)
         REFERENCES developers ( dev_id ),
     dph_phone   VARCHAR(30),
     CONSTRAINT dev_phones_pk PRIMARY KEY ( dph_id,
