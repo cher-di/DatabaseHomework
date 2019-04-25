@@ -19,15 +19,15 @@ CREATE SEQUENCE requests_seq START WITH 1;
 
 CREATE TABLE requests (
     req_id       NUMBER(10) DEFAULT requests_seq.NEXTVAL PRIMARY KEY,
-    req_login    VARCHAR(30)
+    req_login    VARCHAR(30) NOT NULL
         REFERENCES customers ( cust_login ),
-    req_theme    VARCHAR(40)
+    req_theme    VARCHAR(40) NOT NULL
         REFERENCES requests_themes ( rt_theme ),
-    req_date     DATE,
-    req_emp_id   NUMBER(6)
+    req_date     DATE NOT NULL,
+    req_emp_id   NUMBER(6) NOT NULL
         REFERENCES employers ( emp_id ),
-    req_descr    VARCHAR(1000),
-    req_status   VARCHAR(40)
+    req_descr    VARCHAR(1000) NOT NULL,
+    req_status   VARCHAR(40) NOT NULL
         REFERENCES requests_statuses ( rs_status )
 );
 

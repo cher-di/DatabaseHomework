@@ -3,10 +3,10 @@ CREATE SEQUENCE developers_seq START WITH 1;
 
 CREATE TABLE developers (
     dev_id          NUMBER(10) DEFAULT developers_seq.NEXTVAL PRIMARY KEY,
-    dev_name        VARCHAR(200),
-    dev_founddate   DATE,
-    dev_adress      VARCHAR(200),
-    dev_email       VARCHAR(100)
+    dev_name        VARCHAR(200) NOT NULL,
+    dev_founddate   DATE NOT NULL,
+    dev_adress      VARCHAR(200) NOT NULL,
+    dev_email       VARCHAR(100) NOT NULL
 );
 
 -- Пример ввода данных

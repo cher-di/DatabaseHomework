@@ -1,7 +1,7 @@
 -- Код создания
 CREATE TABLE appointments (
     app_app      VARCHAR(30) PRIMARY KEY,
-    app_salary   NUMBER(8,2)
+    app_salary   NUMBER(8,2) NOT NULL
 );
 
 -- Пример ввода данных
@@ -18,20 +18,20 @@ CREATE SEQUENCE employers_seq START WITH 1;
 
 CREATE TABLE employers (
     emp_id        NUMBER(6) DEFAULT employers_seq.NEXTVAL PRIMARY KEY,
-    emp_dep_id    NUMBER(2)
+    emp_dep_id    NUMBER(2) NOT NULL
         REFERENCES departs ( dep_id ),
-    emp_name      VARCHAR(30),
-    emp_sname     VARCHAR(30),
+    emp_name      VARCHAR(30) NOT NULL,
+    emp_sname     VARCHAR(30) NOT NULL,
     emp_pname     VARCHAR(30),
-    emp_email     VARCHAR(100),
-    emp_pas_ser   CHAR(10),
-    emp_gender    CHAR(1),
-    emp_inn       CHAR(12),
-    emp_snils     CHAR(14),
-    emp_adress    VARCHAR(500),
-    emp_wphone    VARCHAR(30),
+    emp_email     VARCHAR(100) NOT NULL,
+    emp_pas_ser   CHAR(10) NOT NULL,
+    emp_gender    CHAR(2) NOT NULL,
+    emp_inn       CHAR(12) NOT NULL,
+    emp_snils     CHAR(14) NOT NULL,
+    emp_adress    VARCHAR(500) NOT NULL,
+    emp_wphone    VARCHAR(30) NOT NULL,
     emp_phone     VARCHAR(30),
-    emp_app       VARCHAR(30)
+    emp_app       VARCHAR(30) NOT NULL
         REFERENCES appointments ( app_app ),
     emp_chief     NUMBER(6)
 );

@@ -3,8 +3,8 @@ CREATE SEQUENCE departs_seq START WITH 1;
 
 CREATE TABLE departs (
     dep_id      NUMBER(2) DEFAULT departs_seq.NEXTVAL PRIMARY KEY,
-    dep_name    VARCHAR(50),
-    dep_email   VARCHAR(100)
+    dep_name    VARCHAR(50) NOT NULL,
+    dep_email   VARCHAR(100) NOT NULL
 );
 
 -- Пример ввода данных

@@ -1,11 +1,11 @@
 -- Код создания
 CREATE TABLE customers (
     cust_login     VARCHAR(30) PRIMARY KEY,
-    cust_nick      VARCHAR(50),
-    cust_email     VARCHAR(100),
-    cust_date      DATE,
-    cust_phone     VARCHAR(30),
-    cust_payment   NUMBER(16)
+    cust_nick      VARCHAR(50) NOT NULL,
+    cust_email     VARCHAR(100) NOT NULL,
+    cust_date      DATE NOT NULL,
+    cust_phone     VARCHAR(30) NOT NULL,
+    cust_payment   NUMBER(16) NOT NULL
 );
 
 -- Пример ввода данных
