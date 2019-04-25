@@ -25,7 +25,7 @@ CREATE TABLE employers (
     emp_pname     VARCHAR(30),
     emp_email     VARCHAR(100) NOT NULL,
     emp_pas_ser   CHAR(10) NOT NULL,
-    emp_gender    CHAR(2) NOT NULL,
+    emp_gender    CHAR(2) NOT NULL, -- 2 тк оракл почему-то считает что для одной буквы нужно 2
     emp_inn       CHAR(12) NOT NULL,
     emp_snils     CHAR(14) NOT NULL,
     emp_adress    VARCHAR(500) NOT NULL,
@@ -59,7 +59,7 @@ INSERT INTO employers (
     'тест отчество',
     'тестовое мыло',
     '1234567890',
-    '1', -- Вот это оч интересный баг тк оракл почему-то считает что буква это два символа, так что надо наверное менять на char(2)
+    'м',
     '123456789012',
     '12345678901234',
     'тестовый адрес',
