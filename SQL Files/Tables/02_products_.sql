@@ -4,21 +4,17 @@ CREATE TABLE products_types (
 );
 
 -- Пример ввода данных
-
 INSERT INTO products_types ( pt_type ) VALUES ( 'т тип' );
 
 -- Код создания
-
 CREATE TABLE language_reference_table (
     lrt_language   VARCHAR(30) PRIMARY KEY
 );
 
 -- Пример ввода данных
-
 INSERT INTO language_reference_table ( lrt_language ) VALUES ( 'тестовый язык' );
 
 -- Код создания
-
 CREATE SEQUENCE products_seq START WITH 1;
 
 CREATE TABLE products (
@@ -36,7 +32,6 @@ CREATE TABLE products (
 );
 
 -- Пример ввода данных
-
 INSERT INTO products (
     prod_type,
     prod_name,
@@ -58,7 +53,6 @@ INSERT INTO products (
 );
 
 -- Код создания
-
 CREATE TABLE localization (
     l_id         NUMBER(10)
         REFERENCES products ( prod_contract ),
@@ -69,7 +63,6 @@ CREATE TABLE localization (
 );
 
 -- Пример ввода данных
-
 INSERT INTO localization (
     l_id,
     l_language
