@@ -22,8 +22,8 @@ CREATE TABLE products (
     prod_type       VARCHAR(10) NOT NULL
         REFERENCES products_types ( pt_type ),
     prod_name       VARCHAR(10) NOT NULL,
-    prod_price      NUMBER(6),
-    prod_mprice     NUMBER(6),
+    prod_price      NUMBER(6) CHECK ( prod_price >= 0 ),
+    prod_mprice     NUMBER(6) CHECK ( prod_mprice >= 0 ),
     prod_dev        NUMBER(10) NOT NULL
         REFERENCES developers ( dev_id ),
     prod_date       DATE NOT NULL,

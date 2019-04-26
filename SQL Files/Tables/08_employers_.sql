@@ -1,7 +1,7 @@
 -- Код создания
 CREATE TABLE appointments (
     app_app      VARCHAR(30) PRIMARY KEY,
-    app_salary   NUMBER(8,2) NOT NULL
+    app_salary   NUMBER(8,2) NOT NULL CHECK ( app_salary >= 0 )
 );
 
 -- Пример ввода данных
@@ -25,7 +25,7 @@ CREATE TABLE employers (
     emp_pname     VARCHAR(30),
     emp_email     VARCHAR(100) NOT NULL,
     emp_pas_ser   CHAR(10) NOT NULL,
-    emp_gender    CHAR(2) NOT NULL, -- 2 тк оракл почему-то считает что для одной буквы нужно 2
+    emp_gender    CHAR(2) NOT NULL,
     emp_inn       CHAR(12) NOT NULL,
     emp_snils     CHAR(14) NOT NULL,
     emp_adress    VARCHAR(500) NOT NULL,

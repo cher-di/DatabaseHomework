@@ -18,7 +18,7 @@ CREATE TABLE licenses (
     lic_date       DATE NOT NULL,
     lic_type       VARCHAR(10) NOT NULL
         REFERENCES licenses_types ( lt_type ),
-    lic_price      NUMBER(7) NOT NULL,
+    lic_price      NUMBER(7) NOT NULL CHECK ( lic_price >= 0 ),
     lic_key        VARCHAR(40) NOT NULL,
     lic_number     NUMBER(4) NOT NULL,
     lic_in_use     NUMBER(4) NOT NULL
