@@ -1,0 +1,11 @@
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON developers TO wwd;
+
+GRANT SELECT
+ON developers TO wwc;
+
+GRANT SELECT
+ON developers TO bk;
+
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON TO wwd;
