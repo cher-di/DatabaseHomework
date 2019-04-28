@@ -6,7 +6,8 @@ CREATE TABLE developers (
     dev_name        VARCHAR(200) NOT NULL,
     dev_founddate   DATE NOT NULL,
     dev_adress      VARCHAR(200) NOT NULL,
-    dev_email       VARCHAR(100) NOT NULL
+    dev_email       VARCHAR(100) NOT NULL CHECK ( REGEXP_LIKE ( dev_email,
+    '.+@.+\..+' ) )
 );
 
 -- Пример ввода данных
@@ -19,14 +20,15 @@ INSERT INTO developers (
     'тестовое имя',
     '24-04-2019',
     'тестовый адрес',
-    'тестовое мыло'
+    'test@mail.ru'
 );
 
 -- Код создания
 CREATE TABLE dev_phones (
     dph_id      NUMBER(10)
         REFERENCES developers ( dev_id ),
-    dph_phone   VARCHAR(30),
+    dph_phone   VARCHAR(30) CHECK ( REGEXP_LIKE ( dph_phone,
+    '[[:digit:]]' ) ),
     CONSTRAINT dev_phones_pk PRIMARY KEY ( dph_id,
     dph_phone )
 );
@@ -37,5 +39,5 @@ INSERT INTO dev_phones (
     dph_phone
 ) VALUES (
     1,
-    'тестовый тел'
+    '123'
 );

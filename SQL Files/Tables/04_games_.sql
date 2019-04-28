@@ -12,8 +12,10 @@ CREATE TABLE games (
         REFERENCES products ( prod_contract ),
     game_genre      VARCHAR(100) NOT NULL
         REFERENCES games_genres ( gg_genre ),
-    game_pad        NUMBER(1) NOT NULL,
-    game_mult       NUMBER(1) NOT NULL
+    game_pad        NUMBER(1) NOT NULL CHECK ( REGEXP_LIKE ( game_pad,
+    '0|1' ) ),
+    game_mult       NUMBER(1) NOT NULL CHECK ( REGEXP_LIKE ( game_mult,
+    '0|1' ) )
 );
 
 -- Пример ввода данных

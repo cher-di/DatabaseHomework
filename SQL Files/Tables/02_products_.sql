@@ -28,7 +28,8 @@ CREATE TABLE products (
         REFERENCES developers ( dev_id ),
     prod_date       DATE NOT NULL,
     prod_upd_date   DATE NOT NULL,
-    prod_sys_req    VARCHAR(1000) NOT NULL
+    prod_sys_req    VARCHAR(1000) NOT NULL,
+    CONSTRAINT date_ck CHECK ( prod_upd_date >= prod_date )
 );
 
 -- Пример ввода данных

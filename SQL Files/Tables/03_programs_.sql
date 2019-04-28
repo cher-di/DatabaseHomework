@@ -12,9 +12,11 @@ CREATE TABLE programs (
         REFERENCES products ( prod_contract ),
     prog_area        VARCHAR(20) NOT NULL
         REFERENCES application_area ( aa_area ),
-    prog_exp_date    INTERVAL DAY TO SECOND,
-    prog_upgrade     NUMBER(1),
-    prog_downgrade   NUMBER(1)
+    prog_exp_date    INTERVAL DAY TO SECOND CHECK ( prog_exp_date > numtodsinterval(0,'second') ),
+    prog_upgrade     NUMBER(1) CHECK ( REGEXP_LIKE ( prog_upgrade,
+    '0|1' ) ),
+    prog_downgrade   NUMBER(1) CHECK ( REGEXP_LIKE ( prog_downgrade,
+    '0|1' ) )
 );
 
 -- Пример ввода данных

@@ -21,7 +21,8 @@ CREATE TABLE licenses (
     lic_price      NUMBER(7) NOT NULL CHECK ( lic_price >= 0 ),
     lic_key        VARCHAR(40) NOT NULL,
     lic_number     NUMBER(4) NOT NULL,
-    lic_in_use     NUMBER(4) NOT NULL
+    lic_in_use     NUMBER(4) NOT NULL,
+    CONSTRAINT licenses_ck CHECK ( lic_number >= lic_in_use )
 );
 
 -- Пример ввода данных
@@ -50,7 +51,7 @@ CREATE TABLE subscription_pay (
     sp_id           NUMBER(10)
         REFERENCES licenses ( lic_id ),
     sp_pay_date     DATE,
-    sp_mounth_cnt   NUMBER(3) NOT NULL,
+    sp_mounth_cnt   NUMBER(3) NOT NULL CHECK ( sp_mounth_cnt > 0 ),
     CONSTRAINT subscription_pay_pk PRIMARY KEY ( sp_id,
     sp_pay_date )
 );
