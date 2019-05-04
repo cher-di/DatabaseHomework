@@ -2,9 +2,9 @@
 ALTER SESSION SET "_ORACLE_SCRIPT" = true;
 
 -- Создание пользователей
-CREATE USER tech_support IDENTIFIED BY password1; -- сотрудники техподдержки
-CREATE USER work_with_dev IDENTIFIED BY password2; -- сотрудники из отдела по работе с разработчиками
-CREATE USER work_with_catalog IDENTIFIED BY password3; -- сотрудники из отдела по работе с каталогом
+CREATE USER tech_support IDENTIFIED BY password1; -- техподдержка
+CREATE USER work_with_dev IDENTIFIED BY password2; -- отдел по работе с разработчиками
+CREATE USER work_with_catalog IDENTIFIED BY password3; -- отдел по работе с каталогом
 CREATE USER bookkeeping IDENTIFIED BY password4; -- бухгалтерия
 CREATE USER human_res IDENTIFIED BY password5; -- отдел кадров
 CREATE USER customers IDENTIFIED BY password6; -- клиенты
@@ -76,7 +76,7 @@ GRANT SELECT ON products_types TO customers;
 GRANT SELECT ON localization TO customers;
 GRANT SELECT ON programs TO customers;
 GRANT SELECT ON games TO customers;
-GRANT SELECT,INSERT,UPDATE,DELETE ON customers TO customers;
+GRANT SELECT,INSERT,UPDATE ON customers TO customers;
 GRANT SELECT,INSERT ON requests TO customers;
 GRANT SELECT ON requests_themes TO customers;
 GRANT SELECT ON requests_statuses TO customers;

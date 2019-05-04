@@ -29,7 +29,17 @@ CREATE TABLE products (
     prod_date       DATE NOT NULL,
     prod_upd_date   DATE NOT NULL,
     prod_sys_req    VARCHAR(1000) NOT NULL,
-    CONSTRAINT date_ck CHECK ( prod_upd_date >= prod_date )
+    CONSTRAINT date_ck CHECK ( prod_upd_date >= prod_date ),
+    CONSTRAINT price_ck CHECK (
+        (
+            prod_price IS NULL
+            AND prod_mprice IS NOT NULL
+        )
+        OR (
+            prod_price IS NOT NULL
+            AND prod_mprice IS NULL
+        )
+    )
 );
 
 -- Пример ввода данных
