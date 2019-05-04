@@ -80,3 +80,9 @@ GRANT SELECT,INSERT,UPDATE ON customers TO customers;
 GRANT SELECT,INSERT ON requests TO customers;
 GRANT SELECT ON requests_themes TO customers;
 GRANT SELECT ON requests_statuses TO customers;
+
+-- Представления
+GRANT SELECT,INSERT,UPDATE,DELETE ON devs_emails TO work_with_dev;
+GRANT SELECT ON recent_products TO customers;
+GRANT SELECT ON men_emp TO bookkeeping;
+GRANT SELECT ON women_emp TO bookkeeping;

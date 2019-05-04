@@ -26,7 +26,7 @@ CREATE OR REPLACE VIEW men_emp AS
     WHERE
         emp_gender = 'м';
 -- Сотрудники женщины
-CREATE OR REPLACE VIEW men_emp AS
+CREATE OR REPLACE VIEW women_emp AS
     SELECT
         emp_name,
         emp_sname,
