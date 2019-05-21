@@ -47,4 +47,8 @@ CREATE OR REPLACE VIEW today_request AS
         trunc(SYSDATE) = trunc(req_date);
         
 -- Распределение запросов к техподдержке по темам за последний год
-CREATE OR REPLACE VIEW 
+CREATE OR REPLACE VIEW requests_distribution AS
+    SELECT req_theme, COUNT(req_id)
+    FROM requests
+    WHERE req_date >= ADD_MONTHS(SYSDATE, -12)
+    GROUP BY req_theme;
