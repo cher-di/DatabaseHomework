@@ -48,7 +48,7 @@ CREATE OR REPLACE VIEW today_request AS
         
 -- Распределение запросов к техподдержке по темам за последний год
 CREATE OR REPLACE VIEW requests_distribution AS
-    SELECT req_theme, COUNT(req_id)
+    SELECT req_theme, COUNT(req_id) / COUNT(SELECT * FROM requests WHERE req_date >= ADD_MONTHS(SYSDATE, -12))
     FROM requests
     WHERE req_date >= ADD_MONTHS(SYSDATE, -12)
     GROUP BY req_theme;
