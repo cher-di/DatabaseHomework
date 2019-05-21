@@ -28,25 +28,26 @@ CREATE OR REPLACE VIEW men_emp AS
 
 -- Сроки истечения платных подписок (до какого срока проплачена подписка)
 CREATE OR REPLACE VIEW subscription_expiration_date AS
-  SELECT
-      l.lic_id,
-      ADD_MONTHS(l.lic_date, SUM(s.sp_month_cnt)) AS lic_exp_date,
-  FROM
-      licenses l, subscription_pay s
-  WHERE
-      l.lic_id = s.sp_id,
-      l.lic_type = "подписка"
-  GROUP BY
-      l.lic_id;
+    SELECT
+        l.lic_id
+        --add_months(l.lic_date,SUM(s.sp_mounth_cnt) ) AS lic_exp_date
+    FROM
+        licenses l,
+        subscription_pay s
+    WHERE
+        l.lic_id = s.sp_id
+        AND   l.lic_type = 'т лиц';
       
 -- Запросы к техподдержке, датированные сегодняшним днем
 CREATE OR REPLACE VIEW today_request AS
-  SELECT
-      req_id,
-      req_login,
-      req_theme,
-      req_emp_id,
-      req_descr,
-      req_status
-  FROM requests
-  WHERE TRUNC(SYSDATE) = TRUNC(req_date);
+    SELECT
+        req_id,
+        req_login,
+        req_theme,
+        req_emp_id,
+        req_descr,
+        req_status
+    FROM
+        requests
+    WHERE
+        trunc(SYSDATE) = trunc(req_date);
