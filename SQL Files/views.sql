@@ -30,11 +30,7 @@ CREATE OR REPLACE VIEW men_emp AS
 CREATE OR REPLACE VIEW subscription_expiration_date AS
     SELECT
         l.lic_id
-        add_months(l.lic_date,SUM(
-        SELECT sp_month_cnt 
-        FROM subscription_pay 
-        WHERE sp_id = l.lic_date)
-        ) AS lic_exp_date
+        add_months(l.lic_date,SUM(s.sp_month_cnt) AS lic_exp_date
     FROM
         licenses l,
         subscription_pay s
@@ -56,3 +52,6 @@ CREATE OR REPLACE VIEW today_request AS
         requests
     WHERE
         trunc(SYSDATE) = trunc(req_date);
+        
+-- Распределение запросов к техподдержке по темам за последний год
+CREATE OR REPLACE VIEW 
