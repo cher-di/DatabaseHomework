@@ -28,8 +28,13 @@ CREATE OR REPLACE VIEW men_emp AS
 
 -- Сроки истечения платных подписок (до какого срока проплачена подписка)
 CREATE OR REPLACE VIEW subscription_expiration_date AS
-    SELECT sp_id AS lic_id, SUM(sp_mounth_cnt) AS exp_date
-    GROUP BY sp_id;
+    SELECT
+        sp_id,
+        SUM(sp_mounth_cnt) AS exp_date
+    FROM
+        subscription_pay
+    GROUP BY
+        sp_id;
       
 -- Запросы к техподдержке, датированные сегодняшним днем
 CREATE OR REPLACE VIEW today_request AS
