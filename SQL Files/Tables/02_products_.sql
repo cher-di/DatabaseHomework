@@ -47,7 +47,6 @@ INSERT INTO products (
     prod_type,
     prod_name,
     prod_price,
-    prod_mprice,
     prod_dev,
     prod_date,
     prod_upd_date,
@@ -55,7 +54,6 @@ INSERT INTO products (
 ) VALUES (
     'т тип',
     'т имя',
-    123456,
     123456,
     1,
     '24-04-2019',
