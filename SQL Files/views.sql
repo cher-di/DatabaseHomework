@@ -46,9 +46,21 @@ CREATE OR REPLACE VIEW today_request AS
     WHERE
         trunc(SYSDATE) = trunc(req_date);
         
--- Распределение запросов к техподдержке по темам за последний год
+-- Распределение запросов к техподдержке по темам за последний год в процентах
 CREATE OR REPLACE VIEW requests_distribution AS
-    SELECT req_theme, COUNT(req_id) / COUNT(SELECT * FROM requests WHERE req_date >= ADD_MONTHS(SYSDATE, -12))
-    FROM requests
-    WHERE req_date >= ADD_MONTHS(SYSDATE, -12)
-    GROUP BY req_theme;
+    SELECT
+        req_theme,
+        COUNT(req_id) / (
+            SELECT
+                COUNT(*)
+            FROM
+                requests
+            WHERE
+                req_date >= add_months(SYSDATE,-12)
+        ) * 100 rc
+    FROM
+        requests
+    WHERE
+        req_date >= add_months(SYSDATE,-12)
+    GROUP BY
+        req_theme;
